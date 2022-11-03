@@ -1,0 +1,3 @@
+[submodule "mex-custom-function-lib"]
+	path = mex-custom-function-lib
+	url = git@github.com:Skedulo/mex-custom-function-lib.git
