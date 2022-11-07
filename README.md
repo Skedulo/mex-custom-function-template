@@ -9,8 +9,8 @@ As this custom function will be bundled into a single file, it means it will cop
 ## Install
 
 1. Checkout the project and make change as you want
-2. Run `git submodule update` to download the `custom function library`
-3. Checkout and pull the `main` branch for latest `custom function library`
+2. Run `git submodule init` to initialize the submodules
+3. Run `git submodule update` to download the source code of submodules/`custom function library`
 4. Run `yarn` from the `custom function` project folder, it will install needed dependencies for both library and main custom function project
 
 ## Test your application
@@ -21,8 +21,5 @@ To run Unit Test, you can
 
 ## Bundle
 
-1. Run `yarn bundle` to bundle your application, the output file is in the `dist` folder. This step will remove and re-build everything before bundling your application to make sure that everything work as expected
-2. Test your bundle before uploading it. Write your own code to do it, for example
-```sh
-node -e 'import(“./index.js").then((myimpl) => {myimpl.handler({UID:"some UID"}).then(val => {console.log(val);});});'
-```
+1. Run `yarn bundle` to bundle your application, the output file is in the `dist` folder. This step will remove and re-build everything before bundling your application to make sure that everything work as expected. The output of bundling job is the bundled files in the `dist` folder. You should have 2 files there, one for Frontend and one for Backend.
+2. Test your bundled file locally before uploading it.

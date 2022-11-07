@@ -1,6 +1,6 @@
 import { CustomFunctionResult } from "mex-custom-function-lib/build/types";
 import { validateMexData } from "./functions/validator";
-import { CustomFunctionPayload } from "./types";
+import { CustomFunctionPayload } from "./types/CustomFunctionPayload";
 
 // *********************************************************************************************
 // * We perform all needed bussiness logic in the `handler` function and export it.            *
