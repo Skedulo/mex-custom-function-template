@@ -21,5 +21,5 @@ To run Unit Test, you can
 
 ## Bundle
 
-1. Run `yarn bundle` to bundle your application, the output file is in the `dist` folder. This step will remove and re-build everything before bundling your application to make sure that everything work as expected. The output of bundling job is the bundled files in the `dist` folder. You should have 2 files there, one for Frontend and one for Backend.
+1. Run `yarn bundle` to bundle your application, the output file is in the `dist` folder. This step will remove and re-build everything before bundling your application to make sure that everything work as expected. The output of bundling job is the bundled files in the `dist` folder.
 2. Test your bundled file locally before uploading it.
