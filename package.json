@@ -38,7 +38,9 @@
     "test:cov": "jest --coverage",
 
     "build-lib": "yarn workspace mex-custom-function-lib build",
-    "clean-lib": "yarn workspace mex-custom-function-lib clean"
+    "clean-lib": "yarn workspace mex-custom-function-lib clean",
+
+    "tar": "rm -f customfunction.tar.gz && tar -zcvf customfunction.tar.gz --exclude={\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\"} ."
   },
   "jest": {
     "moduleFileExtensions": [
