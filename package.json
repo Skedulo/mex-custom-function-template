@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "<=16"
+  },
   "name": "mex-custom-function",
   "version": "1.0.0",
   "main": "index.js",
@@ -30,10 +33,12 @@
     "clean": "rm -rf build && rm -rf dist rm customfunction.tar.gz",
     "build": "yarn workspace mex-custom-function-lib build && tsc -b .",
 
-    "bundle": "yarn clean-lib && yarn build-lib && yarn test && yarn clean && yarn bundle:fe && yarn bundle:be",
+    "bundle": "yarn clean-lib && yarn build-lib && yarn test && yarn clean && yarn bundle:fe && yarn bundle:be && yarn bundle:fetch && yarn bundle:save",
 
     "bundle:fe": "esbuild src/index.frontend.ts --minify --outdir=dist --target=es6",
-    "bundle:be": "esbuild src/index.backend.ts --bundle --minify --outdir=dist --platform=node --target=node16",
+    "bundle:be": "esbuild src/index.save.validate.ts --bundle --minify --outdir=dist --platform=node --target=node16",
+    "bundle:fetch": "esbuild src/index.fetch.ts --bundle --minify --outdir=dist --platform=node --target=node16",
+    "bundle:save": "esbuild src/index.save.ts --bundle --minify --outdir=dist --platform=node --target=node16",
 
     "test": "jest",
     "test:watch": "jest --watch",

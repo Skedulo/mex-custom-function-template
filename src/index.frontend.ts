@@ -13,6 +13,7 @@ type Extras = {
 }
 
 function myFunction(dataContext: DataContext, { converters, expressions }: Extras): any {
+  console.log(converters)
   let val = expressions.fetchValueExpression({ expressionStr: 'pageData.Qty', dataContext: dataContext })
 
   if (val > 100) {
@@ -23,7 +24,7 @@ function myFunction(dataContext: DataContext, { converters, expressions }: Extra
 function calculateTotal(formData: any): any {
   let total = 0
 
-  formData.JobProducts.forEach((item: any, index: any) => {
+  formData.JobProducts.forEach((item: any, _index: any) => {
     total += item.Qty
   })
 
