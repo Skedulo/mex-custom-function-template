@@ -12,8 +12,7 @@ type Extras = {
   expressions: Expressions
 }
 
-function myFunction(dataContext: DataContext, { converters, expressions }: Extras): any {
-  console.log(converters)
+function myFunction(dataContext: DataContext, { expressions }: Extras): any {
   let val = expressions.fetchValueExpression({ expressionStr: 'pageData.Qty', dataContext: dataContext })
 
   if (val > 100) {
@@ -31,6 +30,7 @@ function calculateTotal(formData: any): any {
   return total
 }
 
+// Note: The exported functions and names are depended on the Developer.
 exports = {
   myFunction: myFunction,
   calculateTotal: calculateTotal
