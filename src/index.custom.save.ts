@@ -2,7 +2,7 @@ import { CustomFunctionResult, CustomFunctionStatus } from "mex-custom-function-
 import { CustomSavePayload } from "./types/CustomFunctionPayload";
 
 // *********************************************************************************************
-// * Custom fetch function implementation                                                      *
+// * Custom save function implementation                                                      *
 // *********************************************************************************************
 export const handler = async (payload: CustomSavePayload): Promise<CustomFunctionResult> => {
   if (!!payload.UID) {

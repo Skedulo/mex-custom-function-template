@@ -37,8 +37,8 @@
 
     "bundle:fe": "esbuild src/index.frontend.ts --minify --outdir=dist --target=es6",
     "bundle:be": "esbuild src/index.save.validate.ts --bundle --minify --outdir=dist --platform=node --target=node16",
-    "bundle:fetch": "esbuild src/index.fetch.ts --bundle --minify --outdir=dist --platform=node --target=node16",
-    "bundle:save": "esbuild src/index.save.ts --bundle --minify --outdir=dist --platform=node --target=node16",
+    "bundle:fetch": "esbuild src/index.custom.fetch.ts --bundle --minify --outdir=dist --platform=node --target=node16",
+    "bundle:save": "esbuild src/index.custom.save.ts --bundle --minify --outdir=dist --platform=node --target=node16",
 
     "test": "jest",
     "test:watch": "jest --watch",
