@@ -25,7 +25,7 @@ export const validateSave = async (payload: CustomFunctionPayload): Promise<Cust
  * @param payload Mex fetch payload.
  * @returns 
  */
-export const customeFetch = async (payload: CustomFetchPayload): Promise<CustomFunctionResult> => {
+export const customFetch = async (payload: CustomFetchPayload): Promise<CustomFunctionResult> => {
   if (!!payload.UID) {
     return {
       status: CustomFunctionStatus.SUCCESS,
@@ -45,7 +45,7 @@ export const customeFetch = async (payload: CustomFetchPayload): Promise<CustomF
  * @param payload Mex save payload.
  * @returns 
  */
-export const customeSave = async (payload: CustomSavePayload): Promise<CustomFunctionResult> => {
+export const customSave = async (payload: CustomSavePayload): Promise<CustomFunctionResult> => {
   if (!!payload.UID) {
     return {
       status: CustomFunctionStatus.SUCCESS,
