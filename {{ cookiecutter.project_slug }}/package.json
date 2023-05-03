@@ -2,14 +2,14 @@
   "engines": {
     "node": "<=16"
   },
-  "name": "mex-custom-function",
+  "name": "{{ cookiecutter.project_slug }}",
   "version": "1.0.0",
   "main": "index.js",
   "license": "UNLICENSED",
   "private": true,
   "owner": "skedulo",
   "workspaces": [
-    "mex-custom-function-lib"
+    "{{ cookiecutter.project_slug }}"
   ],
   "dependencies": {
     "lodash": "^4.17.21"
