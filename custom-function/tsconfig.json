@@ -5,7 +5,7 @@
     "target": "es6",
     "module": "commonjs",
     "outDir": "build",
-    "rootDir": "src",
+    "rootDir": ".",
     "composite": true,
     "sourceMap": true,
 
@@ -39,13 +39,13 @@
     "forceConsistentCasingInFileNames": true,
 
     "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
+    "skipLibCheck": true
   },
   "include": [
-    "src"
+    "src/**/*"
   ],
   "exclude": [
-    "src/**/__tests__/**/*",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts"
-  ]
+    "node_modules"
+  ],
+  "references": [{ "path": "../mex-custom-function-lib/tsconfig.json" }]
 }
