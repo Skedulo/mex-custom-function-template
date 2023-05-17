@@ -22,7 +22,7 @@
     "format": "prettier --write src",
     "clean": "rm -rf build && rm -rf dist rm customfunction.tar.gz",
     "build": "yarn workspace mex-custom-function-lib build && tsc -b .",
-    "bundle": "yarn clean-lib && yarn build-lib && yarn test && yarn clean && yarn bundle:fe && yarn bundle:be",
+    "bundle": "yarn bundle:fe && yarn bundle:be",
     "bundle:fe": "esbuild src/index.frontend.ts --minify --outdir=dist --target=es6",
     "bundle:be": "esbuild src/index.backend.ts src/tracing.ts --bundle --minify --outdir=dist --platform=node --target=node18",
     "test": "jest",
