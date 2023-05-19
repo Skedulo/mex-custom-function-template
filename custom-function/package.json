@@ -1,0 +1,52 @@
+{
+  "name": "custom-function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "owner": "skedulo",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/lodash": "^4.14.194",
+    "@types/node": "^16.11.43",
+    "esbuild": "^0.15.12",
+    "prettier": "^2.7.1",
+    "supertest": "^6.3.1",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "lint": "prettier --check src",
+    "format": "prettier --write src",
+    "clean": "rm -rf build && rm -rf dist rm customfunction.tar.gz",
+    "build": "yarn workspace mex-custom-function-lib build && tsc -b .",
+    "bundle": "yarn bundle:fe && yarn bundle:be",
+    "bundle:fe": "esbuild src/index.frontend.ts --minify --outdir=dist --target=es6",
+    "bundle:be": "esbuild src/index.backend.ts src/tracing.ts --bundle --minify --outdir=dist --platform=node --target=node18",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "build-lib": "yarn libs build",
+    "clean-lib": "yarn libs clean",
+    "tar": "rm -f customfunction.tar.gz && tar -zcvf customfunction.tar.gz --exclude={\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\"} ."
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
