@@ -1,0 +1,6 @@
+{
+  "source": "src/graphql",
+  "build": "dist",
+  "queries": "queries",
+  "generated": "__graphql"
+}

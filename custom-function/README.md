@@ -18,6 +18,14 @@ As this custom function will be bundled into a single file, it means it will cop
 
 3. Run `yarn install --frozen-lockfile` from the `custom function` project folder, it will install needed dependencies for both library and main custom function project
 
+## Local development
+1. If you want to develop graphql query, set the following environment variables
+
+    ```
+        export API_SERVER=${Skedulo API URL}
+        export API_TOKEN=${Token to access Skedulo API}
+    ```
+
 ## Test your application
 To run Unit Test, you can
 

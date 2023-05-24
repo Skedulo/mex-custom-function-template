@@ -1,0 +1,45 @@
+query fetchJobsWithJobProducts($filter: EQLQueryFilterJobs!) {
+  jobs(filter: $filter) {
+    edges {
+      node {
+        UID
+        Name
+        JobProducts {
+          UID
+          Qty
+          Name
+          JobId
+          ProductId
+        }
+      }
+    }
+  }
+}
+
+query fetchProducts($orderBy: EQLOrderByClauseProducts, $filter: EQLQueryFilterProducts, $offset: NonNegativeInt) {
+  page: products(orderBy: $orderBy, filter: $filter, offset: $offset) {
+    totalCount
+    edges {
+      node {
+        UID
+        Name
+        Description
+        ProductCode
+      }
+    }
+  }
+}
+
+query fetchCheckInObjects($orderBy: EQLOrderByClauseCheckInObject, $filter: EQLQueryFilterCheckInObject, $offset: NonNegativeInt) {
+  page:checkInObject(orderBy: $orderBy, filter: $filter, offset: $offset) {
+    totalCount
+    edges {
+      node {
+        UID
+        ResourceId
+        JobId
+        CheckInTime
+      }
+    }
+  }
+}

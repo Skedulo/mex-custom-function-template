@@ -7,3 +7,4 @@ tsconfig.tsbuildinfo
 yarn-error.log
 .idea
 local/
+__graphql/

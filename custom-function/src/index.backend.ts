@@ -1,6 +1,7 @@
 import { Function } from 'mex-custom-function-lib/src/functions/function'
-import { validateMexData } from './functions/validator';
-import { fetchMexData } from './functions/fetcher';
+import { validateMexData } from './functions/validator'
+import { fetchMexData } from './functions/fetcher'
+import { saveMexData } from './functions/saver'
 
 /***************************************************************************************
  * IMPORTANT NOTES:
@@ -12,6 +13,9 @@ import { fetchMexData } from './functions/fetcher';
 const skeduloFunction = new Function({
   fetch: {
     handler: fetchMexData
+  },
+  save: {
+    handler: saveMexData
   },
   validate: {
     handler: validateMexData

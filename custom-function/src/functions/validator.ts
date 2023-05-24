@@ -19,4 +19,3 @@ export async function validateMexData(input: CustomInput<CustomValidationInput>)
   
   return validationResult
 }
-
