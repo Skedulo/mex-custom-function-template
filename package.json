@@ -15,6 +15,7 @@
       "clean": "yarn libs clean && yarn app clean",
       "build": "yarn libs build && yarn app build",
       "build:dev": "yarn libs build:dev && yarn app build:dev",
+      "bundle": "yarn app bundle",
       "app": "yarn workspace custom-function",
       "libs": "yarn workspace mex-custom-function-lib",
       "submodule-update": "git submodule update --recursive"
