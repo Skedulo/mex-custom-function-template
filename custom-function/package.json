@@ -9,12 +9,16 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
+    "@skedulo/sdk-dev-utilities": "^0.0.4",
     "@types/axios": "^0.14.0",
     "@types/lodash": "^4.14.194",
     "@types/node": "^16.11.43",
     "esbuild": "^0.15.12",
+    "graphql": "^16.6.0",
     "prettier": "^2.7.1",
     "supertest": "^6.3.1",
+    "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   },
   "scripts": {
@@ -22,9 +26,10 @@
     "format": "prettier --write src",
     "clean": "rm -rf build && rm -rf dist rm customfunction.tar.gz",
     "build": "yarn workspace mex-custom-function-lib build && tsc -b .",
+    "prebundle": "node src/tools/generate-graphql-types.js",
     "bundle": "yarn bundle:fe && yarn bundle:be",
-    "bundle:fe": "esbuild src/index.frontend.ts --minify --outdir=dist --target=es6",
-    "bundle:be": "esbuild src/index.backend.ts src/tracing.ts --bundle --minify --outdir=dist --platform=node --target=node18",
+    "bundle:fe": "ts-node src/buildscripts/esbuild.frontend.ts",
+    "bundle:be": "ts-node src/buildscripts/esbuild.backend.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
