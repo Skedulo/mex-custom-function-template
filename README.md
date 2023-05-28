@@ -2,23 +2,26 @@
 
 Template repository for new Mex Custom Function Template.
 
-This repo is a [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) template to create a basic node backend service integrated with the key sckeudlo backend libraries.
+This repo is a [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) template to create a basic Mobile extension custom function project
 
 ## To use
 
 1. Install cookiecutter
 
-```
+```bash
 OSX: brew install cookiecutter
 
 Other: pip install cookiecutter
 ```
 
-2. Run the cookiecutter. You will be prompted to provide parameters to control the template execution
+2. Run the command to generate a new project from template
 
-```
+```bash
 cookiecutter git@github.com:Skedulo/mex-custom-function-template.git
+```
 
+You will be prompted to provide the name and slug for the new project
+```bash
 project_name [My New Project]:
 project_slug [project slug]:
 
