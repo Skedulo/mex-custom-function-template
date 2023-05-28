@@ -1,0 +1,7 @@
+{
+  "project_name": "My New Project",
+  "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+  "hooks": {
+    "post_gen_project": "hooks/post_gen_project.sh"
+  }
+}

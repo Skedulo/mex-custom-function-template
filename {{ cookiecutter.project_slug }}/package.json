@@ -1,30 +1,29 @@
 {
-    "name": "custom-function",
-    "version": "1.0.0",
-    "description": "Custom Function",
-    "main": "index.js",
-    "license": "UNLICENSED",
-    "owner": "skedulo",
-    "devDependencies": {
-      "husky": "^8.0.2",
-      "workspaces": "^0.1.0"
-    },
-    "scripts": {
-      "dev-init": "yarn husky install && yarn app setup-dev",
-      "dev": "yarn libs build:dev && yarn app dev",
-      "clean": "yarn libs clean && yarn app clean",
-      "build": "yarn libs build && yarn app build",
-      "build:dev": "yarn libs build:dev && yarn app build:dev",
-      "bundle": "yarn app bundle",
-      "app": "yarn workspace custom-function",
-      "libs": "yarn workspace mex-custom-function-lib",
-      "submodule-update": "git submodule update --recursive"
-    },
-    "workspaces": [
-      "custom-function",
-      "mex-custom-function-lib"
-    ],
-    "private": true,
-    "packageManager": "yarn@3.1.1"
-  }
-  
+  "name": "{{ cookiecutter.project_slug }}",
+  "version": "1.0.0",
+  "description": "Custom Function",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "owner": "skedulo",
+  "devDependencies": {
+    "husky": "^8.0.2",
+    "workspaces": "^0.1.0"
+  },
+  "scripts": {
+    "dev-init": "yarn husky install && yarn app setup-dev",
+    "dev": "yarn libs build:dev && yarn app dev",
+    "clean": "yarn libs clean && yarn app clean",
+    "build": "yarn libs build && yarn app build",
+    "build:dev": "yarn libs build:dev && yarn app build:dev",
+    "bundle": "yarn app bundle",
+    "app": "yarn workspace {{ cookiecutter.project_slug }}",
+    "libs": "yarn workspace mex-custom-function-lib",
+    "submodule-update": "git submodule update --recursive"
+  },
+  "workspaces": [
+    "{{ cookiecutter.project_slug }}",
+    "mex-custom-function-lib"
+  ],
+  "private": true,
+  "packageManager": "yarn@3.1.1"
+}

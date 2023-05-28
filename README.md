@@ -9,7 +9,7 @@ This repo is a [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/READ
 1. Install cookiecutter
 
 ```
-OSX : brew install cookiecutter
+OSX: brew install cookiecutter
 
 Other: pip install cookiecutter
 ```
