@@ -16,12 +16,12 @@
     "build": "yarn libs build && yarn app build",
     "build:dev": "yarn libs build:dev && yarn app build:dev",
     "bundle": "yarn app bundle",
-    "app": "yarn workspace {{ cookiecutter.project_slug }}",
+    "app": "yarn workspace custom-function",
     "libs": "yarn workspace mex-custom-function-lib",
     "submodule-update": "git submodule update --recursive"
   },
   "workspaces": [
-    "{{ cookiecutter.project_slug }}",
+    "custom-function",
     "mex-custom-function-lib"
   ],
   "private": true,
