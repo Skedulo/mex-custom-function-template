@@ -1,8 +1,5 @@
 #! /bin/bash
 
-# Change to the generated project directory
-cd "{{ cookiecutter.project_name }}"
-
 # Initialize and update the submodule
 git init
 git checkout -b main
