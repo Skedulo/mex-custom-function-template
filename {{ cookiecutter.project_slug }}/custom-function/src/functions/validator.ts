@@ -3,7 +3,7 @@
 // *******************************************************************
 
 // I am importing from library module
-import {CustomInput, CustomResult, CustomValidationInput, CustomValidationResult, Status} from 'mex-custom-function-lib/src/types'
+import {CustomInput, CustomResult, CustomValidationInput, CustomValidationResult, Status} from 'mex-custom-function-lib/src/types/inner-function'
 // I am using an external library: isEmpty
 import { isEmpty } from 'lodash'
 
