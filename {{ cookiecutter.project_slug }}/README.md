@@ -10,8 +10,8 @@ As this custom function will be bundled into a single file, it means it will cop
 1. If you want to develop graphql query, set the following environment variables
 
     ```
-        export API_SERVER=${Skedulo API URL}
-        export API_TOKEN=${Token to access Skedulo API}
+        export SKED_BASE_URL=${Skedulo API URL}
+        export SKED_API_TOKEN=${Token to access Skedulo API}
     ```
 
 ## Test your application

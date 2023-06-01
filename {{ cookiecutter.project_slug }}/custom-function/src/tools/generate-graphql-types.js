@@ -20,8 +20,8 @@ if (!fs.existsSync(source)){
   
   devUtilities.generateTypesForGraphQLSchema({
     authentication: {
-      baseUrl: process.env.API_SERVER,
-      apiToken: process.env.API_TOKEN
+      baseUrl: process.env.SKED_BASE_URL,
+      apiToken: process.env.SKED_API_TOKEN
     },
     queryInputPath,
     queryDeclarationOutputPath,
