@@ -1,41 +1,44 @@
 {
   "name": "custom-function",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "UNLICENSED",
   "private": true,
   "owner": "skedulo",
   "dependencies": {
+    "graphql": "^16.6.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
-    "@skedulo/sdk-dev-utilities": "^0.0.4",
     "@types/axios": "^0.14.0",
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^29.5.2",
     "@types/lodash": "^4.14.194",
-    "@types/node": "^16.11.43",
+    "@types/node": "^20.2.5",
     "esbuild": "^0.15.12",
     "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
     "prettier": "^2.7.1",
     "supertest": "^6.3.1",
     "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.7.4"
   },
   "scripts": {
     "lint": "prettier --check src",
     "format": "prettier --write src",
-    "clean": "rm -rf build && rm -rf dist rm customfunction.tar.gz",
-    "build": "yarn workspace mex-custom-function-lib build && tsc -b .",
-    "prebundle": "node src/tools/generate-graphql-types.js",
+    "clean": "rm -rf build && rm -rf dist && rm customfunction.tar.gz",
+    "build": "yarn build-lib && tsc -b .",
+    "prebundle": "yarn build-lib && ts-node src/tools/generate-graphql-types.ts",
     "bundle": "yarn bundle:fe && yarn bundle:be",
     "bundle:fe": "ts-node src/buildscripts/esbuild.frontend.ts",
     "bundle:be": "ts-node src/buildscripts/esbuild.backend.ts",
+    "start": "yarn build-lib && ts-node src/localDevIndex.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "build-lib": "yarn libs build",
-    "clean-lib": "yarn libs clean",
-    "tar": "rm -f customfunction.tar.gz && tar -zcvf customfunction.tar.gz --exclude={\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\"} ."
+    "build-lib": "yarn workspace mex-custom-function-lib build",
+    "clean-lib": "yarn workspace mex-custom-function-lib clean"
   },
   "jest": {
     "moduleFileExtensions": [

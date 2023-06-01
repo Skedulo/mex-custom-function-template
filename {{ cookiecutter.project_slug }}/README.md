@@ -14,6 +14,8 @@ As this custom function will be bundled into a single file, it means it will cop
         export SKED_API_TOKEN=${Token to access Skedulo API}
     ```
 
+2. Start service locally by running `yarn dev`. You can customize the port number by setting `PORT` environment variables
+
 ## Test your application
 To run Unit Test, you can
 

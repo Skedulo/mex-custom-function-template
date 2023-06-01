@@ -1,7 +1,5 @@
-import { CustomFetchInput, CustomFetchResult, CustomInput, CustomResult, Status } from 'mex-custom-function-lib/src/types'
-import { flattenGraphQlEdges, sanitizeGraphQLRawQueryData } from 'mex-custom-function-lib/src/utilities'
-import { FetchCheckInObjects } from 'src/graphql/__graphql/graphql'
-import { fetchCheckInObjects } from 'src/graphql/queries/queries.graphql'
+import { CustomFetchInput, CustomFetchResult, CustomInput, CustomResult, Status } from 'mex-custom-function-lib/src/types/inner-function'
+import { FetchCheckInObjectsQuery, FetchCheckInObjectsQueryVariables, FetchCheckInObjectsDocument } from '../graphql/__graphql/generated'
 
 export async function fetchMexData(input: CustomInput<CustomFetchInput>): Promise<CustomResult<CustomFetchResult>> {
     const logger = input.logger
@@ -14,12 +12,11 @@ export async function fetchMexData(input: CustomInput<CustomFetchInput>): Promis
     // })
     // const temp = await api.get('/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m')
 
-    const checkInObjects = await input.services.GraphQLService.executeFetchAutoPaginationForDocument<FetchCheckInObjects.Query, FetchCheckInObjects.Variables>(fetchCheckInObjects, {
+    const checkInObjects = await input.services.GraphQLService.executeFetchAutoPaginationForDocument<FetchCheckInObjectsQuery, FetchCheckInObjectsQueryVariables>(FetchCheckInObjectsDocument, {
         filter: `(ResourceId IN ["${userMetadata.resource?.id}"]) AND (JobId IN ["${input.contextObjectId}"])`
     })
-    const rawCheckinObjects = sanitizeGraphQLRawQueryData(checkInObjects)
-    logger.info(`checkinobject length ${rawCheckinObjects.length}`)
-    const ret = rawCheckinObjects.reduce((prev, curr)=> {
+    logger.info(`checkinobject length ${checkInObjects.length}`)
+    const ret = checkInObjects.reduce<{Count: number, CheckInTime?: string | null}>((prev, curr)=> {
         const date = curr.CheckInTime ? Date.parse(curr.CheckInTime) : undefined
         const prevDate = prev.CheckInTime ? Date.parse(prev.CheckInTime): undefined
         if (!date || !prevDate) {
@@ -33,15 +30,12 @@ export async function fetchMexData(input: CustomInput<CustomFetchInput>): Promis
                 CheckInTime: prevDate > date ? prev.CheckInTime : curr.CheckInTime
             }
         }
-    }, {Count: 0, CheckInTime: undefined} as {
-        Count: number,
-        CheckInTime?: string
-    })
+    }, {Count: 0, CheckInTime: null})
     return {
         status: Status.SUCCESS,
         data: {
             ...userMetadata,
-            ...rawCheckinObjects[0],
+            ...checkInObjects[0],
             ...ret
         }
     }

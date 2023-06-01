@@ -31,7 +31,7 @@ query fetchProducts($orderBy: EQLOrderByClauseProducts, $filter: EQLQueryFilterP
 }
 
 query fetchCheckInObjects($orderBy: EQLOrderByClauseCheckInObject, $filter: EQLQueryFilterCheckInObject, $offset: NonNegativeInt) {
-  page:checkInObject(orderBy: $orderBy, filter: $filter, offset: $offset) {
+  page: checkInObject(orderBy: $orderBy, filter: $filter, offset: $offset) {
     totalCount
     edges {
       node {

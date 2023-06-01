@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import { omit } from "lodash/fp";
-import {CustomInput, CustomResult, CustomSaveInput, CustomSaveResult, Status } from "mex-custom-function-lib/src/types";
-import { GraphQLChangeEvent, generateChangeEvent, playbackChangeEvents } from "mex-custom-function-lib/src/utilities";
+import {CustomInput, CustomResult, CustomSaveInput, CustomSaveResult, Status } from "mex-custom-function-lib/src/types/inner-function";
+import { GraphQLChangeEvent, playbackChangeEvents } from "mex-custom-function-lib/src/utilities/graphql/event-playback";
 import { GraphOperationType, GraphQLArgument } from "mex-custom-function-lib/src/utilities/graphql/graphql-service";
 
 export async function saveMexData(input: CustomInput<CustomSaveInput>): Promise<CustomResult<CustomSaveResult>> {
