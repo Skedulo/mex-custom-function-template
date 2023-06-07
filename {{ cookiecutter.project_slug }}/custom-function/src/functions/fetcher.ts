@@ -34,7 +34,6 @@ export async function fetchMexData(input: CustomInput<CustomFetchInput>): Promis
     return {
         status: Status.SUCCESS,
         data: {
-            ...userMetadata,
             ...checkInObjects[0],
             ...ret
         }
