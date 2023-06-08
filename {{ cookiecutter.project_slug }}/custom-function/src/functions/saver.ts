@@ -6,7 +6,8 @@ import { GraphOperationType, GraphQLArgument } from "mex-custom-function-lib/src
 
 export async function saveMexData(input: CustomInput<CustomSaveInput>): Promise<CustomResult<CustomSaveResult>> {
     const logger = input.logger
-    const arg = omit(['Count', 'CreatedDate'])(input.newInstanceData[0]) as GraphQLArgument
+    const instanceData = Array.isArray(input.newInstanceData) ? input.newInstanceData[0] : input.newInstanceData
+    const arg = omit(['Count', 'CreatedDate'])(instanceData) as GraphQLArgument
     arg['ResourceId'] = input.userInfo.resourceId
     logger.info(`argument ${JSON.stringify(arg)}`)
     const changeEvent: GraphQLChangeEvent = {

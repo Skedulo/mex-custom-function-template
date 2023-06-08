@@ -35,6 +35,7 @@ query fetchCheckInObjects($orderBy: EQLOrderByClauseCheckInObject, $filter: EQLQ
     totalCount
     edges {
       node {
+        __typename
         UID
         ResourceId
         JobId
