@@ -1,8 +1,11 @@
+import fs from 'fs';
 import { build } from 'esbuild';
 import graphqlLoaderPlugin from '@luckycatfactory/esbuild-graphql-loader';
 
+let entryPoints = ['src/index.backend.ts', 'src/tracing.ts']
+
 build({
-  entryPoints: ['src/index.backend.ts', 'src/tracing.ts'],
+  entryPoints: entryPoints.filter(entryPoint => fs.existsSync(entryPoint)),
   bundle: true,
   minify: true,
   outdir: '../dist',
