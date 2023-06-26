@@ -1,30 +1,38 @@
-import { randomUUID } from "crypto";
-import { omit } from "lodash/fp";
+import { omit } from "lodash";
 import {CustomInput, CustomResult, CustomSaveInput, CustomSaveResult, Status } from "mex-custom-function-lib/src/types/inner-function";
-import { GraphQLChangeEvent, playbackChangeEvents } from "mex-custom-function-lib/src/utilities/graphql/event-playback";
-import { GraphOperationType, GraphQLArgument } from "mex-custom-function-lib/src/utilities/graphql/graphql-service";
+import { GraphOperationType } from "mex-custom-function-lib/src/utilities/graphql/graphql-service";
+import { defaultGraphQLSave, graphQLSaveWithPayloadGenerator } from "mex-custom-function-lib/src/utilities/graphql/graphql-utils";
 
 export async function saveMexData(input: CustomInput<CustomSaveInput>): Promise<CustomResult<CustomSaveResult>> {
     const logger = input.logger
-    const instanceData = Array.isArray(input.newInstanceData) ? input.newInstanceData[0] : input.newInstanceData
-    const arg = omit(['Count', 'CreatedDate'])(instanceData) as GraphQLArgument
-    arg['ResourceId'] = input.userInfo.resourceId
-    logger.info(`argument ${JSON.stringify(arg)}`)
-    const changeEvent: GraphQLChangeEvent = {
-        schema: "CheckInObject",
-        ownerContextId: randomUUID(),
-        mutationType: GraphOperationType.insert,
-        mutationArg: arg,
-        mutationAlias: randomUUID()
+    const defaultSave = await defaultGraphQLSave(input, ['JobProducts'])
+    const failedContext = Object.keys(defaultSave.result.contextResults).filter(key => !defaultSave.result.contextResults[key].success)
+    if (failedContext.length > 0) {
+        throw Error(`Failed to save context ${failedContext.join(', ')}`)
     }
-    logger.info(`argument ${JSON.stringify(changeEvent)}`)
-    // const changeEvents = generateChangeEvent(input.instanceData, input.newInstanceData, input.objectMapping)
 
-    const data = await playbackChangeEvents([changeEvent], input.services.GraphQLService)
-    logger.info(`data ${JSON.stringify(data)}`)
+    logger.info(`idMap ${JSON.stringify(defaultSave.result.idMap)}`)
+
+    const checkInSave = await graphQLSaveWithPayloadGenerator(defaultSave.remaining, 'CheckIn', (_UID, _oldData, newData) => {
+        return {
+            mutationType: GraphOperationType.insert,
+            mutationArg: {
+                ...omit(newData, ['Count', 'CreatedDate', 'CreatedAt', '__typename', 'UID']),
+                'ResourceId': input.userInfo.resourceId
+            }
+        }
+    })
+    logger.info(`checkInSave ${JSON.stringify(checkInSave.result.contextResults)}`)
+
+    if (!checkInSave.result.contextResults['CheckIn'].success) {
+        throw Error(`Failed to save context CheckIn`)
+    }
 
     return {
         status: Status.SUCCESS,
-        objectMapping: {}
+        objectMapping: {
+            ...defaultSave.result.idMap,
+            ...checkInSave.result.idMap
+        }
     }
 }
