@@ -1,13 +1,10 @@
 import fs from 'fs';
 import { build } from 'esbuild';
 
-let entryPoints = []
-if (fs.existsSync('./src/index.frontend.ts')) {
-  entryPoints.push('src/index.frontend.ts')
-}
+let entryPoints = ['src/index.frontend.ts']
 
 build({
-  entryPoints: entryPoints,
+  entryPoints: entryPoints.filter(entryPoint => fs.existsSync(entryPoint)),
   minify: true,
   outdir: '../dist',
   target: 'es6'
