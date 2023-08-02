@@ -6,21 +6,17 @@
   "license": "UNLICENSED",
   "owner": "skedulo",
   "devDependencies": {
-    "husky": "^8.0.2",
-    "workspaces": "^0.1.0"
+    "husky": "^8.0.2"
   },
   "scripts": {
     "dev": "yarn app start",
     "clean": "yarn libs clean && yarn app clean",
     "bundle": "yarn app bundle",
     "package": "rm -f customfunction.tar.gz && tar -zcvf customfunction.tar.gz --exclude={\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\"} .",
-    "app": "yarn workspace custom-function",
-    "libs": "yarn workspace mex-custom-function-lib",
-    "submodule-update": "git submodule update --recursive"
+    "app": "yarn workspace custom-function"
   },
   "workspaces": [
-    "custom-function",
-    "mex-custom-function-lib"
+    "custom-function"
   ],
   "private": true,
   "packageManager": "yarn@3.1.1"
