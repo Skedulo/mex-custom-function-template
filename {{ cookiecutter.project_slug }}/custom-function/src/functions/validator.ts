@@ -3,7 +3,7 @@
 // *******************************************************************
 
 // I am importing from library module
-import {CustomInput, CustomResult, CustomValidationInput, CustomValidationResult, Status} from 'mex-custom-function-lib/src/types/inner-function'
+import {CustomInput, CustomResult, CustomValidationInput, CustomValidationResult, Status} from '@skedulo/mex-service-libs/dist/types/inner-function'
 // I am using an external library: isEmpty
 import { isEmpty } from 'lodash'
 
