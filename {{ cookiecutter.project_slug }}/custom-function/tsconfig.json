@@ -37,7 +37,8 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true,
     "tsBuildInfoFile": "./build/tsconfig.tsbuildinfo",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
   },
   "include": [
     "src/**/*"
