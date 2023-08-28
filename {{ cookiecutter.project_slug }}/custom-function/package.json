@@ -7,7 +7,7 @@
   "dependencies": {
     "graphql": "^16.6.0",
     "lodash": "^4.17.21",
-    "@skedulo/mex-service-libs": "latest"
+    "@skedulo/mex-service-libs": "0.0.19"
   },
   "devDependencies": {
     "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
@@ -32,7 +32,7 @@
     "format": "prettier --write src",
     "clean": "rm -rf build && rm -rf dist && rm customfunction.tar.gz",
     "build": "yarn generate && tsc -b .",
-    "generate": "ts-node src/tools/generate-graphql-types.ts",
+    "generate": "ts-node src/tools/generate-graphql-types.ts && ts-node src/tools/generate-info.ts",
     "bundle": "yarn bundle:fe && yarn bundle:be",
     "bundle:fe": "ts-node src/buildscripts/esbuild.frontend.ts",
     "bundle:be": "yarn generate && ts-node src/buildscripts/esbuild.backend.ts",
