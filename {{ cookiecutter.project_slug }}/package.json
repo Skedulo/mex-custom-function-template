@@ -10,14 +10,13 @@
   },
   "scripts": {
     "dev": "yarn app start",
-    "clean": "yarn libs clean && yarn app clean",
+    "clean": "yarn app clean",
     "bundle": "yarn app bundle",
-    "package": "rm -f customfunction.tar.gz && tar -zcvf customfunction.tar.gz --exclude={\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\"} .",
+    "package": "rm -f customfunction.tar.gz && tar -czvf customfunction.tar.gz --exclude={\".git\",\"node_modules\",\"dist\",\"build\",\"coverage\"} .",
     "app": "yarn workspace custom-function"
   },
   "workspaces": [
     "custom-function"
   ],
-  "private": true,
-  "packageManager": "yarn@3.1.1"
+  "private": true
 }
