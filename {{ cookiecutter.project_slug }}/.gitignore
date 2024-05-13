@@ -5,6 +5,10 @@ coverage/
 node_modules/
 tsconfig.tsbuildinfo
 yarn-error.log
-.idea
 local/
 __graphql/
+dev/
+.vscode
+.env
+temp/
+.idea/
