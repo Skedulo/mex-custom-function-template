@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { generateASTForQueries } from '@skedulo/mex-service-libs/dist/utilities/graphql-type-generation/graphql-ast-generation'
+import { generateASTForQueries } from '@skedulo/mex-service-libs/codegen/graphqlAstGeneration'
 
 const rawConfiguration = fs.readFileSync('./src/tools/config.json', 'utf-8')
 const configuration = JSON.parse(rawConfiguration)

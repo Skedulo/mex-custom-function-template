@@ -1,4 +1,4 @@
-import { KoaFunction } from '@skedulo/mex-service-libs/dist/functions/koa-function';
+import { KoaFunction } from '@skedulo/mex-service-libs/functions';
 import { params } from './params';
 
 const envPort = parseInt(process.env.PORT || '')
