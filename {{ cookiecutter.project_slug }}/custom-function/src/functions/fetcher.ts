@@ -1,5 +1,4 @@
-import { CustomFetchInput, CustomFetchResult, CustomResult, CustomFunctionStatus } from '@skedulo/mex-service-libs/dist/types/mex-custom-function'
-import { CustomInput } from '@skedulo/mex-service-libs/dist/types/inner-function'
+import { CustomInput, CustomFetchInput, CustomFetchResult, CustomResult, CustomFunctionStatus } from '@skedulo/mex-service-libs/types'
 import { FetchCheckInObjectsQuery, FetchCheckInObjectsQueryVariables, FetchCheckInObjectsDocument } from '../graphql/__graphql/generated'
 
 export async function fetchMexData(input: CustomInput<CustomFetchInput>): Promise<CustomResult<CustomFetchResult>> {

@@ -1,4 +1,4 @@
-import { Function } from '@skedulo/mex-service-libs/dist/functions/index'
+import { Function } from '@skedulo/mex-service-libs/functions'
 import { params } from './params'
 
 const skeduloFunction = new Function(params)

@@ -1,8 +1,6 @@
 import { omit } from "lodash";
-import { CustomSaveInput, CustomSaveResult, CustomResult, CustomFunctionStatus } from '@skedulo/mex-service-libs/dist/types/mex-custom-function'
-import { CustomInput } from "@skedulo/mex-service-libs/dist/types/inner-function";
-import { GraphOperationType } from "@skedulo/mex-service-libs/dist/utilities/graphql/graphql-service";
-import { defaultGraphQLSave, graphQLSaveWithPayloadGenerator } from "@skedulo/mex-service-libs/dist/utilities/graphql/graphql-utils";
+import { CustomInput, CustomSaveInput, CustomSaveResult, CustomResult, CustomFunctionStatus, GraphOperationType } from '@skedulo/mex-service-libs/types'
+import { defaultGraphQLSave, graphQLSaveWithPayloadGenerator } from "@skedulo/mex-service-libs/utilities/graphql";
 
 export async function saveMexData(input: CustomInput<CustomSaveInput>): Promise<CustomResult<CustomSaveResult>> {
     const logger = input.logger

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import { version } from '@skedulo/mex-service-libs/package.json'
-import { CustomFunctionInfo } from '@skedulo/mex-service-libs/dist/types/mex-custom-function'
+import { CustomFunctionInfo } from '@skedulo/mex-service-libs/types'
 import { params } from '../params'
 
 const info: CustomFunctionInfo = {

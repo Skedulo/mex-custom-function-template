@@ -1,6 +1,6 @@
 import { readFileSync, existsSync, mkdirSync, readdirSync, renameSync } from 'fs'
 import path from 'path'
-import { generateTypesForGraphQLSchema } from '@skedulo/mex-service-libs/dist/utilities/graphql-type-generation/graphql-type-generation'
+import { generateTypesForGraphQLSchema } from '@skedulo/mex-service-libs/codegen/graphqlTypeGeneration'
 
 const rawConfiguration = readFileSync('./src/tools/config.json', 'utf-8')
 const configuration = JSON.parse(rawConfiguration)
