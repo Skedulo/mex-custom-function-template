@@ -18,5 +18,8 @@
   "workspaces": [
     "custom-function"
   ],
-  "private": true
+  "private": true,
+  "resolutions": {
+    "graphql-ws": "5.4.1"
+  }
 }
