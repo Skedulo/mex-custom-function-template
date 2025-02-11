@@ -9,6 +9,9 @@
     "graphql": "^16.8.1",
     "lodash": "^4.17.21"
   },
+  "engines": {
+    "node": "18.19.1"
+  },
   "devDependencies": {
     "@luckycatfactory/esbuild-graphql-loader": "^3.8.1",
     "@types/axios": "^0.14.0",
