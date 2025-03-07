@@ -1,10 +1,16 @@
 # Mex Custom Function Template
 
-Template repository for new Mex Custom Function Template.
+**About**
 
-This repo is a [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) template to create a basic Mobile extension custom function project
+The mobile extension custom functions are built to provide a solution to support businesses' needs. They allow users to do the following things:
+* Customize how their custom form fetches and saves data.
+* Use both GraphQL and REST APIs to fetch or save data.
+* Apply custom business logic using TypeScript.
 
-## To use
+For more details, refer to the [Custom Functions](https://docs.skedulo.com/developer-guides/customize-and-extend-mobile/skedulo-plus-extensions/getting-started/custom-function/) article on the Skedulo Docs site.
+This repository contains a [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) template to help you quickly create a mobile extension custom function project.
+
+**Create a custom function project**
 
 1. Install cookiecutter
 
@@ -36,3 +42,13 @@ The following template variables control execution:
 
 
 3. Validate and then push to github
+
+**Support**
+
+If you need further assistance, contact your Customer Success Manager.
+
+**See also**
+
+[Introduction to Skedulo mobile extensions](https://docs.skedulo.com/developer-guides/customize-and-extend-mobile/skedulo-plus-extensions/mex-intro/)
+
+
