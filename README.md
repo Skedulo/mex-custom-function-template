@@ -1,6 +1,6 @@
-# Mex Custom Function Template
+# Mobile Extension Custom Function Template
 
-**About**
+## About
 
 The mobile extension custom functions are built to provide a solution to support businesses' needs. They allow users to do the following things:
 * Customize how their custom form fetches and saves data.
@@ -8,9 +8,10 @@ The mobile extension custom functions are built to provide a solution to support
 * Apply custom business logic using TypeScript.
 
 For more details, refer to the [Custom Functions](https://docs.skedulo.com/developer-guides/customize-and-extend-mobile/skedulo-plus-extensions/getting-started/custom-function/) article on the Skedulo Docs site.
+
 This repository contains a [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) template to help you quickly create a mobile extension custom function project.
 
-**Create a custom function project**
+## Create a custom function project
 
 1. Install cookiecutter
 
@@ -43,11 +44,11 @@ The following template variables control execution:
 
 3. Validate and then push to github
 
-**Support**
+## Support
 
 If you need further assistance, contact your Customer Success Manager.
 
-**See also**
+## See also
 
 [Introduction to Skedulo mobile extensions](https://docs.skedulo.com/developer-guides/customize-and-extend-mobile/skedulo-plus-extensions/mex-intro/)
 
